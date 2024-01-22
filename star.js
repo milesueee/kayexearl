@@ -14,9 +14,9 @@ const config = {
     minimumDistanceBetweenStars: 75,
     glowDuration: 75,
     maximumGlowPointSpacing: 10,
-    colors: ["207 159 255", "144 238 144"],
+    colors: ["255 0 0  ", "255 192 203", "255 192 203", "\t127\t127\t255"],
     sizes: ["1.4rem", "1rem", "0.6rem"],
-    animations: ["fall-1", "fall-2", "fall-3"]
+    animations: ["fall-1", "fall-2", "fall-3", "fall-4"]
 }
 
 let count = 0;
@@ -59,6 +59,10 @@ const createStar = position => {
     removeElement(star, config.starAnimationDuration);
 }
 
+const miles = (newPoint) => {
+    createGlowPoint()
+}
+
 const createGlowPoint = position => {
     const glow = document.createElement("div");
 
@@ -77,25 +81,6 @@ const determinePointQuantity = distance => Math.max(
     1
 );
 
-/* --
-
-The following is an explanation for the "createGlow" function below:
-
-I didn't cover this in my video, but I ran into an issue where moving the mouse really quickly caused gaps in the glow effect. Kind of like this:
-
-*   *       *       *    *      *    🖱️
-
-instead of:
-
-*************************************🖱️
-
-To solve this I sort of "backfilled" some additional glow points by evenly spacing them in between the current point and the last one. I found this approach to be more visually pleasing than one glow point spanning the whole gap.
-
-The "quantity" of points is based on the config property "maximumGlowPointSpacing".
-
-My best explanation for why this is happening is due to the mousemove event only firing every so often. I also don't think this fix was totally necessary, but it annoyed me that it was happening so I took on the challenge of trying to fix it.
-
--- */
 const createGlow = (last, current) => {
     const distance = calcDistance(last, current),
         quantity = determinePointQuantity(distance);
