@@ -209,7 +209,6 @@ function onWindowResize(){
 }
 
 
-//Compile shader and combine with source
 function compileShader(shaderSource, shaderType){
     var shader = gl.createShader(shaderType);
     gl.shaderSource(shader, shaderSource);
@@ -220,8 +219,6 @@ function compileShader(shaderSource, shaderType){
     return shader;
 }
 
-//From https://codepen.io/jlfwong/pen/GqmroZ
-//Utility to complain loudly if we fail to find the attribute/uniform
 function getAttribLocation(program, name) {
     var attributeLocation = gl.getAttribLocation(program, name);
     if (attributeLocation === -1) {

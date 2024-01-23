@@ -3,16 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#000009">
     <title>from: kaye terana</title>
     <script src="script.js"></script>
     <script src="star.js"></script>
     <script src="initiate.js"></script>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://kit.fontawesome.com/1ee8f271b9.js">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    
 </head>
 
 <body>
-    <canvas id="canvas" width="" height="600"></canvas>
-
+    <canvas id="canvas" width="" height="6000000"></canvas>
+    <h1 id="message">♡</h1>
+    <script>
+        const h1Element = document.getElementById("message");
+    
+        h1Element.addEventListener("click", function() {
+            const typedContainer = document.createElement("div");
+            typedContainer.classList.add("typed-content");
+    
+            swal({
+                title: "HAPPY HAPPY HAPPY HAPPY BIRTHDAY,",
+                buttons: {
+                    google: {
+                        text: "Message Kaye...",
+                        value: "messenger",
+                        className: "swal-button--messenger",
+                    },
+                },
+                closeOnClickOutside: true,
+            }).then((value) => {
+                if (value === "messenger") {
+                    window.open("https://messenger.com/t/100026673286634", "_blank");
+                }
+            });
+        });
+    </script>
 </body>
 </html>
