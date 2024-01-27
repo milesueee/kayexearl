@@ -241,7 +241,6 @@ function getUniformLocation(program, name) {
 var vertexShader = compileShader(vertexSource, gl.VERTEX_SHADER);
 var fragmentShader = compileShader(fragmentSource, gl.FRAGMENT_SHADER);
 
-//Create shader programs
 var program = gl.createProgram();
 gl.attachShader(program, vertexShader);
 gl.attachShader(program, fragmentShader);
@@ -249,15 +248,14 @@ gl.linkProgram(program);
 
 gl.useProgram(program);
 
-//Set up rectangle covering entire canvas
+
 var vertexData = new Float32Array([
-    -1.0,  1.0, 	// top left
-    -1.0, -1.0, 	// bottom left
-    1.0,  1.0, 	// top right
-    1.0, -1.0, 	// bottom right
+    -1.0,  1.0,
+    -1.0, -1.0,
+    1.0,  1.0,
+    1.0, -1.0,
 ]);
 
-//Create vertex buffer
 var vertexDataBuffer = gl.createBuffer();
 gl.bindBuffer(gl.ARRAY_BUFFER, vertexDataBuffer);
 gl.bufferData(gl.ARRAY_BUFFER, vertexData, gl.STATIC_DRAW);
